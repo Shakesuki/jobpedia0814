@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+pd.set_option("max_colwidth", 200)
+from pdb import set_trace
 from google.oauth2 import service_account
 from gsheetsdb import connect
 
@@ -29,21 +31,21 @@ def home():
         st.write('投稿はこちら：　https://forms.gle/7wKCjNFNDQqLVKa88')
 
 def contents(df2):
-    st.title(f"{df2['jobname']}")
-    st.caption(f"{df2['year']}年記載")
+    st.title(f"{df2['jobname'].to_string(index=False)}")
+    st.caption(f"{df2['year'].to_string(index=False)}年記載")
 
     st.subheader('何をする仕事か？')
-    st.markdown(f"{df2['content']}")
+    st.markdown(f"{df2['content'].to_string(index=False)}")
 
     st.subheader('この仕事の好きなところは？')
-    st.markdown(f"{df2['like']}")
+    st.markdown(f"{df2['like'].to_string(index=False)}")
 
     st.subheader('この仕事はどんな人に向いている？')
-    st.markdown(f"{df2['recommend']}")
+    st.markdown(f"{df2['recommend'].to_string(index=False)}")
 
 
     st.subheader('この仕事はどんな人に向いていない？')
-    st.markdown(f"{df2['discourage']}")
+    st.markdown(f"{df2['discourage'].to_string(index=False)}")
 
 def main():
     sheet_url = st.secrets["private_gsheets_url"]
