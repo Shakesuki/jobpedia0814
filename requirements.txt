@@ -1,0 +1,9 @@
+gsheetsdb==0.1.13.1
+streamlit==1.11.1
+pandas==1.4.3
+google-api-core==2.8.2
+google-api-python-client==2.55.0
+google-auth==2.10.0
+google-auth-httplib2==0.1.0
+google-auth-oauthlib==0.5.2
+googleapis-common-protos==1.56.4

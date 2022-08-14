@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 pd.set_option("max_colwidth", 200)
-from pdb import set_trace
 from google.oauth2 import service_account
 from gsheetsdb import connect
 
