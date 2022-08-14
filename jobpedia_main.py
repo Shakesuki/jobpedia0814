@@ -59,8 +59,9 @@ def main():
 
     #select level 1: job category
     jobclist = df["category"]
+    jobclist = jobclist[~jobclist.duplicated()] 
+    
     jobc = st.sidebar.selectbox("職業カテゴリ:", jobclist)
-
     df1 = df[df["category"] == jobc]
 
 
