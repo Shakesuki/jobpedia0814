@@ -50,7 +50,10 @@ def main():
      #df.reset_index()
     #print(df["category"])
 
-    options = st.sidebar.radio('Jobpedia', options = ['ホームへ戻る','投稿を読む'])
+    st.title('Jobpedia')
+    options = st.radio('', options = ['ホームへ戻る','投稿を読む'])
+
+    
 
 
     if options == 'ホームへ戻る':
@@ -62,19 +65,18 @@ def main():
         df = pd.DataFrame(wholedata)
   
         
-        st.sidebar.title('投稿を読む')
 
         #select level 1: job category
         jobclist = df["category"]
         jobclist = jobclist[~jobclist.duplicated()] 
         
-        jobc = st.sidebar.selectbox("職業カテゴリ:", jobclist)
+        jobc = st.selectbox("職業カテゴリ:", jobclist)
         df1 = df[df["category"] == jobc]
 
 
         #select level 2: individual page
         jobnamelist = df1["jobname"]
-        jobname = st.sidebar.selectbox("職業名:", jobnamelist)
+        jobname = st.selectbox("職業名:", jobnamelist)
 
         df2 = df1[df1["jobname"] == jobname]
         contents(df2)
