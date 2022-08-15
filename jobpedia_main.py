@@ -25,9 +25,16 @@ def run_query(query):
 
 
 def home():
-        st.header('Jobpedia')
-        st.caption('みんなの進路指導')
-        st.write('投稿はこちら：　https://forms.gle/7wKCjNFNDQqLVKa88')
+    st.markdown("#### 新しい投稿を追加する↓  ")
+    st.markdown("https://forms.gle/7wKCjNFNDQqLVKa88")
+    st.markdown("---")
+    st.markdown("### ハロワクとは")
+    st.markdown("「15歳が、世の中にどんな仕事があるか手にとるように知ることのできる場」を目指しています。キャリアに迷う大人にもおすすめです。")
+    st.markdown("  ")
+    st.markdown("### お問合せはこちらまで↓")
+    st.markdown("inekarieアットマークgmail.com")
+    
+
 
 def contents(df2):
     st.title(f"{df2['jobname'].to_string(index=False)}")
@@ -47,14 +54,11 @@ def contents(df2):
     st.markdown(f"{df2['discourage'].to_string(index=False)}")
 
 def main():
-     #df.reset_index()
-    #print(df["category"])
-
-    st.title('Jobpedia')
+    st.markdown("# ハローワクワク")
+    st.markdown("#### みんなの進路指導")
     options = st.radio('', options = ['ホームへ戻る','投稿を読む'])
-
-    
-
+    st.markdown("    ")
+  
 
     if options == 'ホームへ戻る':
         home()
@@ -62,10 +66,9 @@ def main():
         sheet_url = st.secrets["private_gsheets_url"]
         wholedata = run_query(f'SELECT * FROM "{sheet_url}"')
 
-        df = pd.DataFrame(wholedata)
-  
+        df_ = pd.DataFrame(wholedata)
+        df = df_.set_axis(['timestamp','year','jobname','category','content','like','recommend','discourage'], axis='columns')
         
-
         #select level 1: job category
         jobclist = df["category"]
         jobclist = jobclist[~jobclist.duplicated()] 
