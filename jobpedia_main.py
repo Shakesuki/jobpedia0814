@@ -28,7 +28,6 @@ def home():
    
     st.markdown("  ")
     st.markdown("## Home")
-    st.markdown("---")
     st.markdown("### ハロワクとは？")
     st.markdown("「15歳が、世の中にどんな仕事があるか手にとるように知ることのできる場」を目指しています。キャリアに迷う大人にもおすすめです。")
     st.markdown("  ")
