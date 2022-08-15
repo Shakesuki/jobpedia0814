@@ -25,13 +25,17 @@ def run_query(query):
 
 
 def home():
-    st.markdown("#### 新しい投稿を追加する↓  ")
-    st.markdown("https://forms.gle/7wKCjNFNDQqLVKa88")
+   
+    st.markdown("  ")
+    st.markdown("## Home")
     st.markdown("---")
-    st.markdown("### ハロワクとは")
+    st.markdown("### ハロワクとは？")
     st.markdown("「15歳が、世の中にどんな仕事があるか手にとるように知ることのできる場」を目指しています。キャリアに迷う大人にもおすすめです。")
     st.markdown("  ")
-    st.markdown("### お問合せはこちらまで↓")
+    st.markdown("#### 新しい投稿を追加する↓  ")
+    st.markdown("https://forms.gle/7wKCjNFNDQqLVKa88")
+    st.markdown("  ")
+    st.markdown("#### お問合せはこちら↓")
     st.markdown("inekarieアットマークgmail.com")
     
 
