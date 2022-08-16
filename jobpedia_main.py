@@ -23,6 +23,10 @@ def run_query(query):
     rows = rows.fetchall()
     return rows
 
+def series_to_string(series):
+    if series.values[0] == None :
+        return "無回答です"
+    return f"{series.to_string(index=False)}"
 
 def home():
    
@@ -36,25 +40,22 @@ def home():
     st.markdown("  ")
     st.markdown("#### お問合せはこちら↓")
     st.markdown("inekarieアットマークgmail.com")
-    
-
 
 def contents(df2):
     st.title(f"{df2['jobname'].to_string(index=False)}")
     st.caption(f"{df2['year'].to_string(index=False)}年記載")
 
     st.subheader('何をする仕事か？')
-    st.markdown(f"{df2['content'].to_string(index=False)}")
+    st.markdown( series_to_string( df2['content'] ) )
 
     st.subheader('この仕事の好きなところは？')
-    st.markdown(f"{df2['like'].to_string(index=False)}")
+    st.markdown( series_to_string ( df2['like'] )) 
 
     st.subheader('この仕事はどんな人に向いている？')
-    st.markdown(f"{df2['recommend'].to_string(index=False)}")
-
+    st.markdown( series_to_string( df2['recommend'] ) )
 
     st.subheader('この仕事はどんな人に向いていない？')
-    st.markdown(f"{df2['discourage'].to_string(index=False)}")
+    st.markdown( series_to_string ( df2['discourage'] )) 
 
 def main():
     st.markdown("# ハローワクワク")
