@@ -43,7 +43,7 @@ def home():
 
 def contents(df2):
     st.title(f"{df2['jobname'].to_string(index=False)}")
-    st.caption(f"{df2['year'].to_string(index=False)}年記載")
+    st.caption(f"{ int( df2['year'].values[0] ) }年記載")
 
     st.subheader('何をする仕事か？')
     st.markdown( series_to_string( df2['content'] ) )
