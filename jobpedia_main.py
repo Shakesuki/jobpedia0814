@@ -76,13 +76,15 @@ def main():
         #select level 1: job category
         jobclist = df["category"]
         jobclist = jobclist[~jobclist.duplicated()] 
+        jobclist = jobclist.sort_values()
         
         jobc = st.selectbox("職業カテゴリ:", jobclist)
         df1 = df[df["category"] == jobc]
 
-
         #select level 2: individual page
         jobnamelist = df1["jobname"]
+        jobnamelist = jobnamelist.sort_values()
+
         jobname = st.selectbox("職業名:", jobnamelist)
 
         df2 = df1[df1["jobname"] == jobname]
