@@ -26,7 +26,7 @@ def run_query(query):
 def series_to_string(series):
     if series.values[0] == None :
         return "無回答です"
-    return f"{series.to_string(index=False)}"
+    return f"{series.to_string(index=False)}".replace("\\n", "  \n") # it doesnt work without two spaces (i dont know why)
 
 def home():
    
